@@ -47,9 +47,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
           children: [
             Container(
               padding: const EdgeInsets.fromLTRB(32, 19, 32, 46),
@@ -160,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: deepBlue,
                     width: 66,
                     height: 71,
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         "\$1",
                         style: TextStyle(
@@ -186,17 +186,17 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => gotoTaskPage(context),
-        tooltip: 'Increment',
-        shape: const CircleBorder(side: BorderSide(color: color1, width: 2)),
-        backgroundColor: fabBgColor,
-        child: const Icon(
-          Icons.add,
-          size: 42,
-          color: Colors.white,
-          shadows: [],
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => gotoTaskPage(context),
+          tooltip: 'Increment',
+          shape: const CircleBorder(side: BorderSide(color: color1, width: 2)),
+          backgroundColor: fabBgColor,
+          child: const Icon(
+            Icons.add,
+            size: 42,
+            color: Colors.white,
+            shadows: [],
+          ),
         ),
       ),
     );
@@ -253,19 +253,31 @@ class TaskListItem extends StatelessWidget {
                 style: task.complete
                     ? TextStyle(
                         color: Colors.grey.shade600,
-                        decoration: TextDecoration.lineThrough)
-                    : const TextStyle(color: deepBlue),
+                        decoration: TextDecoration.lineThrough,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      )
+                    : const TextStyle(
+                        color: deepBlue,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ),
               ),
             ),
             const Gap(16),
             OutlinedButton(
               onPressed: () => gotoTaskPage(task),
               style: ButtonStyle(
-                  shape: MaterialStatePropertyAll(
-                RoundedRectangleBorder(
-                    side: const BorderSide(color: deepBlue),
-                    borderRadius: BorderRadius.circular(4)),
-              )),
+                foregroundColor: const MaterialStatePropertyAll(deepBlue),
+                textStyle: const MaterialStatePropertyAll(
+                  TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                ),
+                shape: MaterialStatePropertyAll(
+                  RoundedRectangleBorder(
+                      side: const BorderSide(color: deepBlue),
+                      borderRadius: BorderRadius.circular(4)),
+                ),
+              ),
               child: const Text("Edit"),
             ),
           ],
