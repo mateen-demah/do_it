@@ -4,6 +4,7 @@ import 'package:do_it/data/db_models.dart';
 import 'package:do_it/main.dart';
 import 'package:do_it/presentation/screens/task_page.dart';
 import 'package:do_it/presentation/theme/colors.dart';
+import 'package:do_it/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
@@ -59,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   CircleAvatar(
                     radius: 25,
                     backgroundColor: Colors.white,
+                    backgroundImage: NetworkImage(imageUrl),
                   ),
                   Gap(21),
                   Flexible(
