@@ -233,9 +233,10 @@ class TaskListItem extends StatelessWidget {
         child: Row(
           children: [
             task.complete
-                ? const ImageIcon(
-                    AssetImage("assets/icons/ic_checked_circle.png"),
-                    size: 32,
+                ? Image.asset(
+                    "assets/icons/ic_checked_circle.png",
+                    height: 32,
+                    width: 32,
                   )
                 : const Icon(
                     Icons.radio_button_off,
